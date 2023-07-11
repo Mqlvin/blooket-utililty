@@ -41,7 +41,7 @@ hide();
 body.onkeydown = handleKey;
 
 function handleKey(e) {
-    if(e.key == "c") {
+    if(e.key == "`") {
         if(shown) hide();
         else show();
 
