@@ -2,7 +2,7 @@
 let target = ""
 
 
-let { stateNode } = Object.values(document.querySelector('#app > div > div'))[1].children[0]._owner;
+let { stateNode } = Object.values(document.querySelector('#aeffdabedffdb > div > div'))[1].children[0]._owner;
 let player = undefined;
 let cr = undefined;
 

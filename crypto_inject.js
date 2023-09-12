@@ -1,3 +1,5 @@
+let stateNodeSelector = "#aeffdabedffdb > div > div";
+
 let addSetNumberInputStyle = "user-select: none;outline:  none;background-color: transparent;border: 1px solid rgba(255, 255, 255, 0.15);color: rgba(255, 255, 255, 0.5);border-radius: 5px;font-family: 'Courier New', monospace;width: 150px;margin-right: 3px;";
 
 let addSetButtonInputStyle = "user-select: none;outline:  none;width: 50px;background-color: transparent;color: rgba(255, 255, 255, 0.5);border: 1px solid rgba(255, 255, 255, 0.15);border-radius: 5px;font-family: 'Courier New', monospace;";
@@ -325,7 +327,7 @@ function setMoney() {
     let amountWanted = parseInt(document.getElementById("field-set-number").value);
     if(isNaN(amountWanted)) return;
 
-    let { stateNode } = Object.values(document.querySelector('#app > div > div'))[1].children[0]._owner;
+    let { stateNode } = Object.values(document.querySelector(stateNodeSelector))[1].children[0]._owner;
 
     stateNode.setState({
         crypto: amountWanted,
@@ -337,7 +339,7 @@ function addMoney() {
     let amountWanted = parseInt(document.getElementById("field-add-number").value);
     if(isNaN(amountWanted)) return;
 
-    let { stateNode } = Object.values(document.querySelector('#app > div > div'))[1].children[0]._owner;
+    let { stateNode } = Object.values(document.querySelector(stateNodeSelector))[1].children[0]._owner;
 
     stateNode.setState({
         crypto: stateNode.state.crypto + amountWanted,
@@ -350,7 +352,7 @@ function giveGold() {
     let amountGive = parseInt(document.getElementById("field-give-number").value);
     if(isNaN(amountGive)) return;
 
-    let { stateNode } = Object.values(document.querySelector('#app > div > div'))[1].children[0]._owner; stateNode.props.liveGameController.setVal({ path: "c/".concat(stateNode.props.client.name), val: { b: stateNode.props.client.blook, p: stateNode.state.password, cr: stateNode.state.crypto, tat: `${playerToGiveTo}:-${amountGive}` } });
+    let { stateNode } = Object.values(document.querySelector(stateNodeSelector))[1].children[0]._owner; stateNode.props.liveGameController.setVal({ path: "c/".concat(stateNode.props.client.name), val: { b: stateNode.props.client.blook, p: stateNode.state.password, cr: stateNode.state.crypto, tat: `${playerToGiveTo}:-${amountGive}` } });
 }
 
 function stealGold() {
@@ -359,7 +361,7 @@ function stealGold() {
     if(isNaN(amountSteal)) return;
 
     
-    let { stateNode } = Object.values(document.querySelector('#app > div > div'))[1].children[0]._owner; stateNode.props.liveGameController.setVal({ path: "c/".concat(stateNode.props.client.name), val: { b: stateNode.props.client.blook, p: stateNode.state.password, cr: stateNode.state.crypto, tat: `${playerToSteal}:${amountSteal}` } });
+    let { stateNode } = Object.values(document.querySelector(stateNodeSelector))[1].children[0]._owner; stateNode.props.liveGameController.setVal({ path: "c/".concat(stateNode.props.client.name), val: { b: stateNode.props.client.blook, p: stateNode.state.password, cr: stateNode.state.crypto, tat: `${playerToSteal}:${amountSteal}` } });
     stateNode.setState({
         crypto: stateNode.state.crypto + amountSteal,
         crypto2: stateNode.state.crypto + amountSteal
@@ -369,7 +371,7 @@ function stealGold() {
 function stealAllGold() {
     let target = document.getElementById("field-stealall-name").value;
 
-    let { stateNode } = Object.values(document.querySelector('#app > div > div'))[1].children[0]._owner;
+    let { stateNode } = Object.values(document.querySelector(stateNodeSelector))[1].children[0]._owner;
     let player = undefined;
     let cr = undefined;
 
@@ -405,7 +407,7 @@ function stealAllGold() {
 }
 
 function stealEveryonesGold() {
-    let { stateNode } = Object.values(document.querySelector('#app > div > div'))[1].children[0]._owner;
+    let { stateNode } = Object.values(document.querySelector(stateNodeSelector))[1].children[0]._owner;
 
     stateNode.props.liveGameController.getDatabaseVal("c", (players_raw) => {
         let players = Object.entries(players_raw);
@@ -426,7 +428,7 @@ function stealEveryonesGold() {
 }
 
 function stealAllDelayed(cr, player) {
-    let { stateNode } = Object.values(document.querySelector('#app > div > div'))[1].children[0]._owner;
+    let { stateNode } = Object.values(document.querySelector(stateNodeSelector))[1].children[0]._owner;
 
     stateNode.setState({
         crypto: stateNode.state.crypto + cr,
