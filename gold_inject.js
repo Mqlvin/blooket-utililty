@@ -1,4 +1,4 @@
-const mainDivName = document.querySelector("body").children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].id;
+const mainDivName = document.querySelector("body").children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].id;
 const stateNodeSelector = "#" + mainDivName + " > div > div";
 
 let addSetNumberInputStyle = "user-select: none;outline:  none;background-color: transparent;border: 1px solid rgba(255, 255, 255, 0.15);color: rgba(255, 255, 255, 0.5);border-radius: 5px;font-family: 'Courier New', monospace;width: 150px;margin-right: 3px;";
